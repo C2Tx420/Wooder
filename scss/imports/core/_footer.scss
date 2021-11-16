@@ -1,0 +1,40 @@
+.footer{
+    background-color: $black-cl;
+
+    position: relative;
+    &-wrap{
+        height: var(--height-footer);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__left{
+        &-text{
+            color: $footer-cl;
+            font-size: var(--body12-fs);
+            line-height: var(--body12-lh);
+        }
+    }
+    &__logo{
+        @include mid;
+        & img{
+            display: block;
+        }
+    }
+    &__right{
+        cursor: pointer;
+        &-text{
+            color: $footer-cl;
+            font-size: var(--body12-fs);
+            line-height: var(--body12-lh);
+            text-transform: uppercase;
+        }
+    }
+    @include xs{
+        &-wrap{
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+    }
+}

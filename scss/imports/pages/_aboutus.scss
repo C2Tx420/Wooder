@@ -1,0 +1,37 @@
+.about-us{
+    padding: var(--pd-section) 0;
+    .container{
+        display: flex;
+        gap: 64px;
+        &__btn{
+            @include btn;
+            color: $black-cl;
+        }
+        &__btn::after{
+            content: "";
+            display: block;
+            width: 36px;
+            height: 2px;
+            background-color: $main-color;
+    
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+    }
+    @include sm{
+        .container{
+            flex-direction: column;
+        }
+    }
+    @include xs{
+        .container{
+            gap: unset;
+            .about-us__img{
+                & img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

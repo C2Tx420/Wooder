@@ -1,0 +1,43 @@
+.news{
+    padding-top: var(--pd-section);
+    margin-top: -24px;
+    .taglist{
+        display: flex;
+        padding-bottom: 20px;
+        gap: 10px;
+        .tag__item{
+            @include btn;
+            display: block;
+            color: $black-cl;
+            font-family: pb;
+            border: 1px solid #ccc;
+            max-width: 150px;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: all linear 0.3s;
+        }
+        .tag__item:hover{
+            background-color: $black-cl;
+            color: $white-cl;
+            transition: linear 0.3s;
+        }
+        .tag__item.--active{
+            background-color: $main-color;
+        }
+    }
+    &__list{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 25px;
+        display: none;
+    }
+    &__list.--active{
+        display: grid;
+    }
+    @include xs{
+        &__list{
+            grid-template-columns: 1fr;
+        }
+    }
+}

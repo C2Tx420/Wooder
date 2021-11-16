@@ -1,0 +1,80 @@
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 600;
+
+    background-color: rgba($black-cl,.5);
+    opacity: 0;
+    pointer-events: none;
+    padding-left: 200px;
+    padding-right: 200px;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    &__item{
+
+        background-color: red;
+        height: 0;
+        padding-top: 55%;
+        width: 100%;
+
+        border: 4px solid $white-cl;
+
+        position: relative;
+        iframe{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .close{
+            position: absolute;
+            top: -14px;
+            right: -14px;
+    
+            background-color: $white-cl;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            cursor: pointer;
+            & span{
+                font-size: 2rem;
+                padding-bottom: 2px;
+            }
+        }
+    }
+}
+.modal.--active{
+    opacity: 1;
+    pointer-events: auto;
+}
+@include md{
+    .modal{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+@include sm{
+    .modal{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+@include xs{
+    .modal{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

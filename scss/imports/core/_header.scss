@@ -1,0 +1,231 @@
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%);
+
+    height: var(--height-header);
+    z-index: 500;
+    .container-fluid{
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        & .header__logo{
+            & img{
+                display: block;
+            }
+        }
+            & nav{
+                height: 100%;
+                
+                @include mid;
+                ul{
+                    padding: 0;
+                    display: flex;
+                    gap: 50px;
+    
+                    height: 100%;
+                    li{
+                        list-style-type: none;
+                        height: 100%;
+                        & a{
+                            font-family: 'pb';
+                            text-decoration: none;
+                            line-height: var(--body15-lh);
+    
+                            font-size: var(--body15-fs);
+                            color: $white-cl;
+                            opacity: .5;
+    
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        & a:hover{
+                            opacity: 1;
+                        }
+                        & .--active{
+                            color: $main-color;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            & .lang{
+                position: relative;
+                &__current{
+                    display: flex;
+                    gap: 6px;
+                    cursor: pointer;
+                    &-text{
+                        font-family: 'pb';
+                        font-size: var(--body15-fs);
+                        color: $white-cl;
+                    }
+                }
+                &__option{
+                    background-color: $black-cl;
+                    position: absolute;
+                    top: 30px;
+                    right: 0;
+    
+                    text-align: right;
+
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: .3s;
+                    & a{
+                        font-family: 'pb';
+                        font-size: var(--body15-fs);
+                        padding: 10px 14px 10px 34px;
+                        
+                        color: $white-cl;
+    
+                        border-top: 1px solid #393939;
+                        display: block;
+                        text-decoration: none;
+                    }
+                    & a:hover{
+                        color: $black-cl;
+                        background-color: rgba($white-cl,.8);
+                    }
+                    & a:first-child{
+                        border-top: none;
+                    }      
+                }
+                &__option.--active{
+                    opacity: 1;
+                    pointer-events: auto;
+                    transition: .3s;
+                }
+            }
+            & .mobile-btn{
+                width: 30px;
+                height: 100%;
+    
+                position: relative;
+                display: none;
+
+                z-index: 502;
+                & span{
+                    content: '';
+                    display: block;
+                    background-color: $white-cl;
+                    width: 100%;
+                    height: 2px;
+                    @include mid
+                }
+            }
+            & .mobile-btn::before{
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                top: 32px;
+                border-top: 2px solid #fff;
+                transition: 0.3s;
+            }
+            & .mobile-btn::after{
+                content: "";
+                display: block;
+                position: absolute;
+                top: 46px;
+                width: 100%;
+                border-top: 2px solid #fff;
+                transition: 0.3s;
+            }
+
+            & .mobile-btn.--active::before{
+                transform: rotate(45deg);
+                top: 42px;
+                transition: 0.3s;
+            }
+            & .mobile-btn.--active{
+                & span{
+                    display: none;
+                }
+            }
+            & .mobile-btn.--active::after{
+                transform: rotate(136deg);
+                top: 42px;
+                transition: 0.3s;
+            }
+        }
+        @include md{
+            .container-fluid{
+                & .header__nav{
+                    position: unset;
+                    transform: unset;
+                }
+        }
+    }
+        @include sm{
+            .container-fluid{
+                & .header__logo{
+                    @include mid;
+                }
+                & nav{
+                    display: none;
+                }
+                & .mobile-btn{
+                    display: block;
+                }
+            }
+    }
+    @include xs{
+        .container-fluid{
+            & .header__logo{
+                @include mid;
+                & img{
+                    width: 140px;
+                }
+            }
+            & .mobile-btn::after{
+                top: 40px;
+            }
+            & .mobile-btn::before{
+                top: 28px;
+            }
+        }
+    }
+    @include xxs{
+        .container-fluid{
+            & .mobile-btn::after{
+                top: 30px;
+            }
+            & .mobile-btn::before{
+                top: 18px;
+            }
+        }
+    }
+}
+header.--active{
+    background-color: $black-cl;
+    height: 66px;
+    .scrollbar{
+        width: 0%;
+        height: 4px;
+        background-color: $main-color;
+    }
+    @include sm{
+        .container-fluid{
+            & .mobile-btn::after{
+                top: 38px;
+            }
+            & .mobile-btn::before{
+                top: 26px;
+            }
+            & .mobile-btn.--active::before{
+                top: 38px;
+            }
+        }
+}
+
+}
+

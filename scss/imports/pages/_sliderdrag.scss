@@ -1,0 +1,36 @@
+.sliderdrag{
+    // overflow-x: hidden;
+    // display: flex;
+    // gap: 25px;
+    padding-top: var(--pd-section);
+    height: 500px;
+    &__item{
+        height: 100%;
+        margin-right: 10px;
+    }
+    @include sm{
+        padding-bottom: 40px;
+        &__item{
+            & img{
+                height: 240px;
+            }
+        }
+    }
+    @include xs{
+        &__item{
+            & img{
+                height: 180px;
+            }
+        }
+    }
+}
+.sliderdrag__progress{
+    width: 200px;
+    background-color: #ccc;
+    margin: 10px auto 90px;
+    .timeline{
+        height: 5px;
+        width: 0;
+        background-color: $main-color;
+    }
+}

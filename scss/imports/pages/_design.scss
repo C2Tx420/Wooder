@@ -1,0 +1,39 @@
+.design{
+    background-image: url(../img/design/img.jpg);
+    background-attachment: fixed;
+    background-position: center;
+
+    padding: 180px 0;
+
+    &__btn{
+        @include btn;
+        
+        width: 250px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        color: $white-cl;
+        font-size: 1.2rem;
+
+        cursor: pointer;
+        transition: .3s;
+    }
+    &__btn:hover{
+        background-color: $main-color;
+        transition: .3s;
+    }
+
+    @include sm{
+        padding: 120px 0;
+    }
+    @include xs{
+        padding: 80px 0;
+        &__btn{
+            width: 190px;
+            height: 40px;
+        }
+    }
+}
